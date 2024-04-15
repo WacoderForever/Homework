@@ -29,6 +29,8 @@ int main(){
         printf("Type: %s\n",CarGetType(current_car));
         printf("Year: %d\n",CarGetYear(current_car)); 
     }
+
+
     //removing the ford ka 
     CarArray_destroy_car(all_cars,1);
 

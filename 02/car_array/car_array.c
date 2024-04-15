@@ -9,7 +9,7 @@ CarArray *newCarArray(){
 void CarArray_append_car(CarArray *self, Car *car){
     //realocate values acording to position
     self->cars = (Car**)realloc(self->cars,
-        self->size + 1 * sizeof(CarArray*)
+        (self->size + 1) * sizeof(CarArray*)
     );
     self->cars[self->size] = car;
     self->size+=1;
