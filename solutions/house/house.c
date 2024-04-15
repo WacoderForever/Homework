@@ -1,66 +1,62 @@
-//setters
-
-void SetType(House *self,char *type){
+void SetHouseType(House *self,char *type){
 
     if(self->type){
+
         free(self->type);
     }
 
     self->type=strdup(type);
 }
 
-void SetLocation(House *self,char *location){
+void SetHouseLocation(House *self,char *location){
 
     if(self->location){
+
         free(self->location);
     }
 
     self->location=strdup(location);
 }
 
-void SetPrice(House *self,float price){
+void SetHousePrice(House *self,float price){
 
     self->price=price;
 }
 
 //constructor
-
 House *newHouse(char *type,char *location,float price){
 
     House *self=(House*)malloc(sizeof(House));
     *self=(House){0};
-    SetType(self,type);
-    SetLocation(self,location);
-    SetPrice(self,price);
+    SetHouseType(self,type);
+    SetHouseLocation(self,location);
+    SetHousePrice(self,price);
 
     return self;
 }
 
-//getters
-
-char *GetType(House *self){
+char *GetHouseType(House *self){
 
     return self->type;
 }
 
-char *GetLocation(House *self){
+char *GetHouseLocation(House *self){
 
     return self->location;
 }
 
-float GetPrice(House *self){
+float GetHousePrice(House *self){
 
     return self->price;
 }
 
-//deconstructor
-
-void HouseFree(House *self){
+void FreeHouse(House *self){
 
     if(self->type){
 
         free(self->type);
     }
+
     if(self->location){
 
         free(self->location);
