@@ -3,6 +3,8 @@ PersonArray *newPersonArray(){
     PersonArray *self=(PersonArray*)malloc(sizeof(PersonArray));
     *self=(PersonArray){0};
     self->persons=(Person**)malloc(0);
+
+    return self;
 }
 
 void AppendPersonInArray(PersonArray *self,Person *person){
