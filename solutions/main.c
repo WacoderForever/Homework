@@ -1,45 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "house/house.h"
-#include "house/house.c"
-#include "house_array/house_array.h"
-#include "house_array/house_array.c"
+#include "person/person.h"
+#include "person/person.c"
+#include "person_array/person_array.h"
+#include "person_array/person_array.c"
 
 int main(){
 
-    HouseArray *myHouses=newHouseArray();
+    PersonArray *myArray=newPersonArray();
 
-    House *house1=newHouse("Bungalow","Mars",150000.76);
-    AppendHouseArray(myHouses,house1);
+    Person *person1=newPerson("John","Doe",78);
+    AppendPersonInArray(myArray,person1);
 
-    House *house2=newHouse("Rental","Pluto",15000);
-    AppendHouseArray(myHouses,house2);
+    Person *person2=newPerson("Joseph","Kilman",22);
+    AppendPersonInArray(myArray,person2);
 
-    House *house3=newHouse("Apartment","Earth",7800.43);
-    AppendHouseArray(myHouses,house3);
+    Person *person3=newPerson("Zyzz","Lim",5);
+    AppendPersonInArray(myArray,person3);
 
-    for(int i=0;i<myHouses->size;i++){
+    for(int i=0;i<myArray->size;i++){
 
-        House *temp=GetHouseInArray(myHouses,i);
-        printf("======================================\n");
-        printf("House type: %s\n",GetHouseType(temp));
-        printf("House location: %s\n",GetHouseLocation(temp));
-        printf("House price: %.2f\n",GetHousePrice(temp));
+        Person *temp=GetPersonInArray(myArray,i);
+        printf("====================================\n");
+        printf("Person Fname: %s\n",GetPersonFname(temp));
+        printf("Person Lname: %s\n",GetPersonLname(temp));
+        printf("Person Age: %d\n",GetPersonAge(temp));
     }
 
-    RemoveHouse(myHouses,2);
-
-    for(int i=0;i<myHouses->size;i++){
-
-        House *temp=GetHouseInArray(myHouses,i);
-        printf("======================================\n");
-        printf("House type: %s\n",GetHouseType(temp));
-        printf("House location: %s\n",GetHouseLocation(temp));
-        printf("House price: %.2f\n",GetHousePrice(temp));
-    }
-
-    FreeHouseArray(myHouses);
+    FreePersonArray(myArray);
 
     return 0;
 }

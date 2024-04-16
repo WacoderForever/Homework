@@ -3,6 +3,8 @@ HouseArray *newHouseArray(){
     HouseArray *self=(HouseArray*)malloc(sizeof(HouseArray));
     *self=(HouseArray){0};
     self->houses=(House**)malloc(0);
+
+    return self;
 }
 
 void AppendHouseArray(HouseArray *self, House *house){
@@ -22,6 +24,8 @@ void RemoveHouse(HouseArray *self,int index){
 
         self->houses[i]=self->houses[i+1];
     }
+
+    self->size--;
 }
 
 House *GetHouseInArray(HouseArray *self,int index){
